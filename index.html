@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanGuard | AI Loan Eligibility Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blur"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">🏦</div>
+                <h1>LoanGuard <span class="badge">AI</span></h1>
+            </div>
+            <p>Smart Loan Eligibility Prediction System</p>
+        </header>
+
+        <main>
+            <form id="loanForm" class="glass-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" placeholder="25" min="18" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="income">Annual Income ($)</label>
+                        <input type="number" id="income" placeholder="50000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loan_amount">Loan Amount Requested ($)</label>
+                        <input type="number" id="loan_amount" placeholder="10000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="credit_score">Credit Score</label>
+                        <input type="number" id="credit_score" placeholder="700" min="300" max="850" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="employment_years">Employment Years</label>
+                        <input type="number" id="employment_years" placeholder="5" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="education">Education Level</label>
+                        <select id="education" required>
+                            <option value="High School">High School</option>
+                            <option value="Bachelors">Bachelors</option>
+                            <option value="Masters">Masters</option>
+                            <option value="PhD">PhD</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="housing">Housing Status</label>
+                        <select id="housing" required>
+                            <option value="Rent">Rent</option>
+                            <option value="Mortgage">Mortgage</option>
+                            <option value="Own">Own</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" id="submitBtn">
+                    <span>Check Eligibility</span>
+                    <div class="loader" id="loader"></div>
+                </button>
+            </form>
+
+            <div id="resultModal" class="modal hidden">
+                <div class="modal-content">
+                    <div id="resultIcon" class="icon"></div>
+                    <h2 id="resultTitle">Analyzing...</h2>
+                    <p id="resultMessage"></p>
+                    <button onclick="closeModal()">Check Another</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 LoanGuard AI. All rights reserved.</p>
+                <p class="author">Made by Satyam Singh | 2302901520162 | CSE_AI_C</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
