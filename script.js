@@ -53,19 +53,29 @@ function showResult(status, name) {
     const icon = document.getElementById('resultIcon');
     const title = document.getElementById('resultTitle');
     const message = document.getElementById('resultMessage');
+    const content = modal.querySelector('.modal-content');
 
     modal.classList.remove('hidden');
+    content.style.transform = 'scale(0.8) translateY(20px)';
+    content.style.opacity = '0';
+    
+    // Trigger reflow for animation
+    setTimeout(() => {
+        content.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        content.style.transform = 'scale(1) translateY(0)';
+        content.style.opacity = '1';
+    }, 10);
 
     if (status === 'Eligible') {
-        icon.innerHTML = '✅';
-        icon.style.color = '#10b981';
+        icon.innerHTML = '✨';
+        icon.style.color = 'var(--success)';
         title.innerText = 'Congratulations!';
-        message.innerText = `Great news, ${name}! Based on our AI analysis, you are highly likely to be eligible for this loan.`;
+        message.innerText = `Great news, ${name}! Our AI analysis indicates a high probability of loan eligibility. You're on your way!`;
     } else {
-        icon.innerHTML = '❌';
-        icon.style.color = '#ef4444';
-        title.innerText = 'Application Declined';
-        message.innerText = `We're sorry, ${name}. Based on the current risk assessment, you are not eligible for this loan at this time.`;
+        icon.innerHTML = '⚠️';
+        icon.style.color = 'var(--danger)';
+        title.innerText = 'Assessment Complete';
+        message.innerText = `We appreciate your interest, ${name}. Currently, your profile doesn't meet the eligibility criteria for this loan.`;
     }
 }
 
